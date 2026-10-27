@@ -1,0 +1,14 @@
+{
+  "name": "harbour-line-enquiry-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ivy: AI enquiry agent demo for a fictional Perth renovator. Cloudflare Workers + Durable Objects + Workers AI.",
+  "scripts": {
+    "dev": "wrangler dev --port 8811",
+    "dev:remote": "wrangler dev --remote --port 8811",
+    "test": "node redteam.mjs http://127.0.0.1:8811"
+  },
+  "devDependencies": {
+    "wrangler": "^4.153.0"
+  }
+}

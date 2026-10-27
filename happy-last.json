@@ -1,0 +1,230 @@
+{
+ "pass": 5,
+ "total": 5,
+ "conversations": [
+  {
+   "tag": "kitchen-scarborough",
+   "ok": true,
+   "notes": [],
+   "profile": {
+    "projectType": "kitchen",
+    "suburb": "Scarborough",
+    "budgetBand": "30to60",
+    "temperature": "hot",
+    "note": "Booked free site visit Thu 29 Oct, 9:00 am, mobile **** *** 019. Full renovation with mid-range finishes, 1990s house, b",
+    "firstName": "Priya",
+    "timeline": "3-6 months"
+   },
+   "booking": {
+    "slot": "Thu, 29 Oct, 9:00 am",
+    "at": 1793235600000,
+    "contact": "**** *** 019",
+    "bookedAt": 1793091229653
+   },
+   "handoff": null,
+   "messages": 10,
+   "log": [
+    {
+     "user": "Hi, I'm thinking about renovating our kitchen in Scarborough.",
+     "reply": "Great, Scarborough is a lovely spot. Roughly what budget band are you thinking for the kitchen? Under $30k, $30k to $60k, or over $60k?",
+     "events": [
+      "Saved: Scarborough, kitchen"
+     ]
+    },
+    {
+     "user": "It's a 1990s house. We want a full renovation with mid-range finishes, budget around $40,000.",
+     "reply": "Thanks for the details. A full renovation with mid-range finishes in a 1990s home sounds like a great project. Roughly when are you hoping to get started? As soon as possible, in the next 1–3 months, 3–6 months, or are you still researching?",
+     "events": [
+      "Saved: Scarborough, kitchen, $30,000 to $60,000, warm"
+     ]
+    },
+    {
+     "user": "We'd like to start in the next 3 to 6 months. I'm Priya by the way.",
+     "reply": "Thanks, Priya. I’ve saved your details. I can book a free site visit for you at one of these times:\n\n- Thu 29 Oct, 9:00 am\n- Thu 29 Oct, 11:30 am\n- Fri 30 Oct, 9:00 am\n- Fri 30 Oct, 11:30 am\n- Sat 31 Oct, 9:00 am\n- Sat 31 Oct, 11:00 am\n\nWhich time suits you best? Also, please share a phone number or email so I can confirm the booking.",
+     "events": [
+      "Saved: Priya, Scarborough, kitchen, $30,000 to $60,000, 3-6 months, warm",
+      "Checked open site visit times (Perth time)"
+     ]
+    },
+    {
+     "user": "Can you book the free site visit? Show me times.",
+     "reply": "Here are the next available slots:\n\n- Thu 29 Oct, 9:00 am\n- Thu 29 Oct, 11:30 am\n- Fri 30 Oct, 9:00 am\n- Fri 30 Oct, 11:30 am\n- Sat 31 Oct, 9:00 am\n- Sat 31 Oct, 11:00 am\n\nPlease pick a time and share a phone number or email so I can confirm the booking.",
+     "events": []
+    },
+    {
+     "user": "The first one works for me. My mobile is 0412 555 019.",
+     "reply": "Your free site visit is booked for Thursday, 29 Oct at 9:00 am AWST. A designer will confirm by phone or email. The visit takes about 60–90 minutes and is a great chance to go over your kitchen, budget and ideas.",
+     "events": [
+      "Booked site visit: Thu, 29 Oct, 9:00 am AWST",
+      "Saved: Priya, Scarborough, kitchen, $30,000 to $60,000, 3-6 months, hot"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "bathroom-fremantle",
+   "ok": true,
+   "notes": [],
+   "profile": {
+    "firstName": "Tom",
+    "suburb": "Fremantle",
+    "projectType": "bathroom",
+    "budgetBand": "15to30",
+    "timeline": "unsure",
+    "note": "Asking about timeline and warranty. Wants to redo main bathroom in Fremantle with budget around $25,000. Payment stages "
+   },
+   "booking": null,
+   "handoff": null,
+   "messages": 6,
+   "log": [
+    {
+     "user": "Hi, I'm Tom. We want to redo the main bathroom in our place in Fremantle. Budget is about $25,000.",
+     "reply": "Thanks Tom. Your $25,000 budget fits our mid-range bathroom work, which typically runs $25,000 to $38,000. We strip-out, waterproof, tile, install vanity, shower, toilet, tapware, heated towel rail, lighting and exhaust, plus plumbing and electrical, and finish with a clean. Waterproofing is certified and backed by a 7-year warranty.\n\nWhen do you want to start, and what’s your rough timeline?",
+     "events": [
+      "Saved: Tom, Fremantle, bathroom, $15,000 to $30,000",
+      "Checked the FAQ: \"bathroom cost\""
+     ]
+    },
+    {
+     "user": "How long would it take, and what warranty do you give?",
+     "reply": "From signing to starting on site is typically 3 to 6 weeks. On site, a bathroom or ensuite takes 3 to 5 weeks. Warranty is 7 years on waterproofing and structural workmanship, and 2 years on everything else. Manufacturer warranties on products like tapware and stone are passed to you.\n\nWould you like to book a free site measure and quote visit?",
+     "events": [
+      "Checked the FAQ: \"How long does a renovation take\"",
+      "Checked the FAQ: \"What warranty do you give\"",
+      "Saved: Tom, Fremantle, bathroom, $15,000 to $30,000, unsure"
+     ]
+    },
+    {
+     "user": "What are the payment stages?",
+     "reply": "Payments are staged and tied to progress, never paid in full upfront. A deposit of 5% on signing, progress payments at set milestones, and the final 5% on handover after the walk-through and defect list. For example, on a $28,000 kitchen: $1,400 deposit, about $8,400 at each of three milestones, and $1,400 at handover. Your contract sets the exact milestones.\n\nWhich payment methods do you prefer, and would you like to book a site visit?",
+     "events": [
+      "Checked the FAQ: \"payments stages\"",
+      "Saved: Tom, Fremantle, bathroom, $15,000 to $30,000, unsure"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "direct-booking-saturday",
+   "ok": true,
+   "notes": [],
+   "profile": {
+    "firstName": "Sam",
+    "suburb": "Mount Lawley",
+    "projectType": "laundry",
+    "budgetBand": "under15",
+    "timeline": "1-3 months",
+    "temperature": "hot",
+    "note": "Booked site visit Sat 31 Oct, 9:00 am, email s***@example.com"
+   },
+   "booking": {
+    "slot": "Sat, 31 Oct, 9:00 am",
+    "at": 1793408400000,
+    "contact": "s***@example.com",
+    "bookedAt": 1793091273619
+   },
+   "handoff": null,
+   "messages": 8,
+   "log": [
+    {
+     "user": "I'd like to book a free site visit. I'm Sam, and it's a laundry renovation in Mount Lawley.",
+     "reply": "Thanks, Sam. I've got your details for a laundry renovation in Mount Lawley.\n\nHere are the next available free site visits (60–90 minutes):\n\n- Thu 29 Oct, 9:00 am\n- Thu 29 Oct, 11:30 am\n- Fri 30 Oct, 9:00 am\n- Fri 30 Oct, 11:30 am\n- Sat 31 Oct, 9:00 am\n- Sat 31 Oct, 11:00 am\n\nWhich time works for you?",
+     "events": [
+      "Saved: Sam, Mount Lawley, laundry",
+      "Checked open site visit times (Perth time)"
+     ]
+    },
+    {
+     "user": "Budget maybe $12,000, and we want it done in 1 to 3 months.",
+     "reply": "Thanks, Sam. Your budget of $12,000 is in our typical range for a laundry renovation, and a 1–3 month timeline is achievable.\n\nWhich of the available times works for you?\n\n- Thu 29 Oct, 9:00 am\n- Thu 29 Oct, 11:30 am\n- Fri 30 Oct, 9:00 am\n- Fri 30 Oct, 11:30 am\n- Sat 31 Oct, 9:00 am\n- Sat 31 Oct, 11:00 am\n\nAnd please share your phone number or email so I can lock in the booking.",
+     "events": [
+      "Saved: Sam, Mount Lawley, laundry, Under $15,000, 1-3 months, warm"
+     ]
+    },
+    {
+     "user": "What Saturday times do you have?",
+     "reply": "The Saturday options are:\n\n- Sat 31 Oct, 9:00 am\n- Sat 31 Oct, 11:00 am\n\nWhich one works for you? And please share your phone number or email so I can confirm the booking.",
+     "events": []
+    },
+    {
+     "user": "Saturday at 9:00 am please. My email is sam.rivers@example.com",
+     "reply": "Your free site visit is confirmed for Saturday, 31 Oct at 9:00 am AWST. A designer will reach out by phone or email to confirm.\n\nAt the visit, we’ll take measurements, discuss your layout and finishes, and give you a written quote. No pressure—just a clear idea of what’s possible within your budget.\n\nIs there anything else you’d like to know before then?",
+     "events": [
+      "Saved: Sam, Mount Lawley, laundry, Under $15,000, 1-3 months, hot",
+      "Booked site visit: Sat, 31 Oct, 9:00 am AWST"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "knowledge-and-gap",
+   "ok": true,
+   "notes": [],
+   "profile": {},
+   "booking": null,
+   "handoff": null,
+   "messages": 6,
+   "log": [
+    {
+     "user": "What's included in a bathroom renovation? And does it cover a freestanding bath?",
+     "reply": "A bathroom renovation includes strip-out, waterproofing, tiling, vanity, shower, bath if you want one, toilet, tapware, heated towel rail, lighting, exhaust ventilation, plumbing and electrical work, and a final clean. Waterproofing is certified and backed by our 7-year structural and waterproofing workmanship warranty.\n\nYes, you can have a freestanding bath. It’s a common option, but it usually adds cost due to floor loading, plumbing position and extra waterproofing. We check the space at the site visit. The written quote after the site measure sets the final figure.\n\nAre you planning a bathroom or ensuite renovation in Perth?",
+     "events": [
+      "Checked the FAQ: \"bathroom renovation\"",
+      "Checked the FAQ: \"freestanding bath\""
+     ]
+    },
+    {
+     "user": "Do you also handle council approvals, and what is your ABN?",
+     "reply": "I don’t have those details in my information. Council approvals are handled as part of the job for some projects, but I can’t confirm which ones or the exact process without checking with the team. I also don’t have our ABN on hand.\n\nI can have a team member call you to confirm approvals, ABN and anything else you need. Would you like me to arrange that?",
+     "events": [
+      "Checked the FAQ: \"council approvals\"",
+      "Checked the FAQ: \"ABN\"",
+      "Flagged a question the FAQ doesn't cover"
+     ]
+    },
+    {
+     "user": "Do you do solar panels or battery installs?",
+     "reply": "I don’t have that information. Solar panels and battery installs aren’t covered by my knowledge base.\n\nI can have a team member call you to clarify what you need. Would you like me to arrange that?",
+     "events": [
+      "Checked the FAQ: \"solar panels battery\"",
+      "Flagged a question the FAQ doesn't cover"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "quiet-lead-follow-up",
+   "ok": true,
+   "notes": [],
+   "profile": {
+    "firstName": "Jess",
+    "suburb": "Hillarys",
+    "projectType": "bathroom",
+    "budgetBand": "30to60",
+    "timeline": "3-6 months",
+    "temperature": "warm",
+    "note": "Ensuite renovation, around $30k budget, timeline 3-6 months"
+   },
+   "booking": null,
+   "handoff": null,
+   "messages": 5,
+   "log": [
+    {
+     "user": "Hi, I'm Jess. I'm looking at an ensuite renovation in Hillarys, maybe $30,000, but probably not until 3 to 6 months from now.",
+     "reply": "Thanks Jess. A mid-range ensuite fits our $25,000 to $38,000 range. We strip-out, waterproof, tile, install vanity, shower, toilet, tapware, heated towel rail, lighting, exhaust and plumbing/electrical, then clean. Waterproofing is certified with a 7-year warranty.\n\nI can book a free site measure and quote visit for you. What phone number or email would you like me to use?",
+     "events": [
+      "Saved: Jess, Hillarys, bathroom, $30,000 to $60,000, 3-6 months, warm",
+      "Checked the FAQ: \"ensuite renovation cost\""
+     ]
+    },
+    {
+     "user": "Thanks, I'll have a think about it.",
+     "reply": "No worries Jess. I'll check back in 24 hours in case you'd like to lock in a free site measure and quote visit.",
+     "events": [
+      "Will follow up shortly (demo speed): Warm lead interested in ensuite renovation, not yet booked site visit - checking back in 24 hours"
+     ]
+    }
+   ]
+  }
+ ]
+}

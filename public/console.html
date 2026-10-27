@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Owner console for the Ivy enquiry agent demo. View-only for the public.">
+<title>__NAME__ · Owner console (demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martel:wght@400;700;800&family=Martel+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F0E7;--paper2:#ECE4D6;--card:#FFFDF9;--ink:#1D2A30;--ink2:#46545B;--ink3:#69767C;--rule:rgba(29,42,48,.16);--navy:#15384A;--navy2:#0E2A39;--copper:#B25A2B;--copper2:#8F4519;--ok:#2C6B45;--warn:#9A5B12;--bad:#A62F2F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14.5px/1.5 "Martel Sans",Georgia,serif;-webkit-text-size-adjust:100%}
+a{color:inherit}
+.demo{background:var(--navy2);color:#F5F0E7;font-size:13px;line-height:1.4;padding:8px 16px;text-align:center}
+.demo a{color:#F2C9A8;text-underline-offset:2px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--rule)}
+.mark{flex:none;width:36px;height:36px}
+header>div{min-width:0}
+header h1{margin:0;font:800 17px/1.1 Martel,serif;color:var(--navy)}
+header p{margin:2px 0 0;color:var(--ink3);font-size:12.5px}
+header .sp{flex:1}
+.btn{font:600 13px "Martel Sans",sans-serif;color:var(--navy);background:none;border:1px solid var(--navy);border-radius:4px;padding:7px 11px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--navy);color:#fff}
+.btn.solid{background:var(--navy);color:#fff}
+.btn.sm{padding:3px 8px;font-size:12px}
+.badge{font:700 11px/1 "Martel Sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:3px;border:1px solid var(--rule);color:var(--ink2)}
+.badge.owner{background:var(--ok);border-color:var(--ok);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border-bottom:1px solid var(--rule)}
+.stat{background:var(--paper);padding:12px 16px}
+.stat b{display:block;font:800 26px/1 Martel,serif;color:var(--navy)}
+.stat span{font-size:12px;color:var(--ink3)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr)}
+.col{padding:16px;border-bottom:1px solid var(--rule)}
+h2{font:800 19px/1.1 Martel,serif;color:var(--navy);margin:0 0 12px}
+h3{font:700 11.5px/1 "Martel Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin:22px 0 10px}
+.lead{padding:10px 12px;border:1px solid var(--rule);border-radius:4px;background:var(--card);margin-bottom:8px;cursor:pointer}
+.lead.on{border-color:var(--navy);box-shadow:inset 3px 0 0 var(--copper)}
+.lead b{display:block;font-size:14.5px}
+.lead small{color:var(--ink3)}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{font:700 11px/1.5 "Martel Sans",sans-serif;padding:0 6px;border-radius:3px;border:1px solid var(--rule);color:var(--ink2)}
+.tag.hot{background:var(--copper);color:#fff;border-color:var(--copper)}
+.tag.warm{border-color:var(--copper);color:var(--copper2)}
+.tag.booked{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tag.handoff{background:var(--warn);color:#fff;border-color:var(--warn)}
+.tag.urgent{background:var(--bad);color:#fff;border-color:var(--bad)}
+.thread .m{margin:0 0 10px;padding:10px 12px;border-radius:6px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere}
+.thread .u{background:var(--navy);color:#F5F0E7;margin-left:auto}
+.thread .a{background:var(--card);border:1px solid var(--rule)}
+.thread .a.f{border-color:var(--copper)}
+.thread .ev{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.thread .ev span{font:600 11.5px/1.4 "Martel Sans",sans-serif;color:var(--ink2);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;background:var(--paper)}
+.thread .ev span.booked{color:var(--ok);border-color:rgba(44,107,69,.5)}
+.thread .ev span.urgent{background:var(--bad);color:#fff;border-color:var(--bad)}
+.thread .ev span.handoff{color:var(--warn);border-color:rgba(154,91,18,.5)}
+dl.prof{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;background:var(--card);border:1px solid var(--rule);padding:12px;border-radius:4px;margin:0 0 14px}
+.prof dt{color:var(--ink3);font-weight:600}
+.prof dd{margin:0;overflow-wrap:anywhere}
+.feed div{padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.feed time{display:block;font-size:11.5px;color:var(--ink3)}
+.feed .urgent{color:var(--bad);font-weight:700}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{margin:0 0 9px;padding:0 0 9px;border-bottom:1px solid var(--rule)}
+.rules button{margin-left:6px}
+textarea{width:100%;height:70px;font:400 14px "Martel Sans",sans-serif;padding:8px;border:1px solid var(--navy);border-radius:4px;background:#fff;color:var(--ink)}
+.empty{color:var(--ink3)}
+.digest{background:var(--card);border:1px solid var(--rule);padding:10px 12px;border-radius:4px}
+.note{background:var(--paper2);border-radius:4px;padding:10px 12px;color:var(--ink2);font-size:13px;margin:0 0 14px}
+.meter{height:6px;background:var(--paper2);border-radius:3px;overflow:hidden;margin-top:8px}.meter i{display:block;height:100%;background:var(--copper)}
+:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+@media (min-width:640px){.stats{grid-template-columns:repeat(6,1fr)}}
+@media (min-width:1000px){.grid{grid-template-columns:320px minmax(0,1fr) 380px;height:calc(100vh - 190px);min-height:520px}.col{overflow:auto;border-right:1px solid var(--rule);border-bottom:0}.col:last-child{border-right:0}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Demo business.</b> Harbour Line Renovations is fictional. Built by <a href="https://eklavyashetty.com" target="_blank" rel="noopener">Eklavya Shetty</a>.</div>
+<header>
+  <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#15384A"/><path d="M7 25h26" stroke="#F2C9A8" stroke-width="2.4" stroke-linecap="round"/><path d="M12 25V15l8-5 8 5v10" fill="none" stroke="#F5F0E7" stroke-width="2.2" stroke-linejoin="round"/><path d="M7 30c4-2 7 2 13 0s9-2 13 0" fill="none" stroke="#B25A2B" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <div><h1>Owner console</h1><p>What __NAME__ is doing, for whom, and what needs a person. Times in AWST.</p></div>
+  <span class="sp"></span>
+  <span class="badge" id="mode">View only</span>
+  <span id="next" style="font-size:12px;color:var(--ink3)"></span>
+  <button class="btn" id="signin">Owner sign-in</button>
+  <button class="btn" id="sweep" hidden>Run the desk sweep now</button>
+  <button class="btn" id="reset" hidden title="Clears leads, gaps and activity. Keeps house rules and today's usage.">Clear demo data</button>
+  <a class="btn solid" href="/" target="_blank" rel="noopener">Open chat</a>
+</header>
+<div class="stats" id="stats"></div>
+<div class="grid">
+  <section class="col"><h2>Leads</h2><div id="leads"><p class="empty">No enquiries yet. Open the chat and ask something.</p></div></section>
+  <section class="col"><h2 id="th-h">Conversation</h2><div id="prof"></div><div class="thread" id="thread"><p class="empty">Pick a lead on the left.</p></div></section>
+  <section class="col">
+    <h2>Desk</h2>
+    <div class="digest" id="digest">No sweep yet.</div>
+    <div class="meter" aria-hidden="true"><i id="meter" style="width:0"></i></div>
+    <p class="empty" id="usage" style="margin:4px 0 0;font-size:12.5px"></p>
+    <h3>Site visits booked</h3>
+    <ul class="list" id="visits"><li class="empty">None yet.</li></ul>
+    <h3>Handed to a person</h3>
+    <ul class="list" id="hands"><li class="empty">None yet.</li></ul>
+    <h3>Questions it couldn't answer</h3>
+    <ul class="list" id="gaps"><li class="empty">None yet.</li></ul>
+    <h3>House rules (the agent follows these)</h3>
+    <ul class="list rules" id="rules"></ul>
+    <div id="ruleform" hidden><textarea id="rule" placeholder="Teach it something. e.g. Mention the showroom's Saturday opening when someone books a weekend visit."></textarea><p><button class="btn solid" id="addrule">Add rule</button></p></div>
+    <p class="note" id="viewnote">The public console is view-only. House rules, the desk sweep and clearing demo data need the owner key.</p>
+    <h3>Activity</h3>
+    <div class="feed" id="feed"></div>
+  </section>
+</div>
+<script>
+(function(){
+  var sel=null, owner=false, $=function(i){return document.getElementById(i);};
+  var key=""; try{ key=sessionStorage.getItem("hl-owner-key")||""; }catch(e){}
+  var E=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+  var T=function(ms){return ms?new Date(ms).toLocaleString("en-AU",{timeZone:"Australia/Perth",weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit",hour12:true}):"";};
+  var PT={kitchen:"Kitchen",bathroom:"Bathroom","whole-home":"Whole-home",laundry:"Laundry",outdoor:"Outdoor",other:"Other"};
+  var BB={under15:"Under $15,000","15to30":"$15,000 to $30,000","30to60":"$30,000 to $60,000","60to100":"$60,000 to $100,000",over100:"Over $100,000",unsure:"Not sure yet"};
+  function api(path,opt){ opt=opt||{}; opt.headers=Object.assign({},opt.headers||{}); if(key) opt.headers["x-owner-key"]=key; return fetch(path,opt); }
+  function name(p){ return (p.firstName||"Unnamed visitor")+(p.projectType?" · "+(PT[p.projectType]||p.projectType):""); }
+  function state(){
+    api("/api/desk").then(function(r){return r.json();}).then(function(s){
+      owner=!!s.owner;
+      $("mode").textContent=owner?"Owner":"View only"; $("mode").className="badge"+(owner?" owner":"");
+      ["sweep","reset","ruleform"].forEach(function(i){$(i).hidden=!owner;}); $("viewnote").hidden=owner; $("signin").hidden=owner;
+      $("next").textContent=s.nextSweep?"Next sweep "+T(s.nextSweep):"";
+      var L=s.leads||[], booked=L.filter(function(l){return l.booking;}), hands=L.filter(function(l){return l.handoff;});
+      $("stats").innerHTML=[[L.length,"Enquiries"],[booked.length,"Site visits booked"],[hands.length,"Handed to a person"],[L.filter(function(l){return l.profile&&l.profile.temperature==="hot";}).length,"Hot leads"],[(s.gaps||[]).length,"Knowledge gaps"],[s.usage.used+" / "+s.usage.cap,"Messages today"]].map(function(x){return '<div class="stat"><b>'+E(x[0])+'</b><span>'+E(x[1])+'</span></div>';}).join("");
+      $("meter").style.width=Math.min(100,100*s.usage.used/s.usage.cap)+"%";
+      $("usage").textContent="Daily cap "+s.usage.cap+" messages across all visitors, "+s.usage.visitorCap+" per visitor. Resets at midnight Perth time.";
+      $("digest").textContent=s.digests&&s.digests[0]?s.digests[0].text+" ("+T(s.digests[0].at)+")":"No sweep yet.";
+      $("leads").innerHTML=L.length?L.map(function(f){
+        var p=f.profile||{}, tags=[];
+        if(p.temperature) tags.push('<span class="tag '+E(p.temperature)+'">'+E(p.temperature)+'</span>');
+        if(f.booking) tags.push('<span class="tag booked">Visit '+E(f.booking.slot)+'</span>');
+        if(f.handoff) tags.push('<span class="tag '+(f.handoff.urgent?'urgent':'handoff')+'">'+(f.handoff.urgent?'Urgent, needs a person':'Needs a person')+'</span>');
+        if(f.followup) tags.push('<span class="tag">Follow-up set</span>');
+        var meta=[p.suburb,p.budgetBand&&BB[p.budgetBand],p.timeline].filter(Boolean).join(" · ");
+        return '<div class="lead'+(f.id===sel?' on':'')+'" data-id="'+E(f.id)+'"><b>'+E(name(p))+'</b><small>'+E(meta)+'</small><div><small>'+E(f.preview||"")+'</small></div><div class="tags">'+tags.join("")+'</div><small>'+T(f.lastAt)+'</small></div>';
+      }).join(""):'<p class="empty">No enquiries yet. Open the chat and ask something.</p>';
+      $("visits").innerHTML=booked.length?booked.map(function(f){var p=f.profile||{};return '<li><b>'+E(f.booking.slot)+' AWST</b><br>'+E(p.firstName||"Homeowner")+', '+E(p.suburb||"")+' · '+E(PT[p.projectType]||p.projectType||"")+'<br><small class="empty">'+E(f.booking.contact)+'</small></li>';}).join(""):'<li class="empty">None yet.</li>';
+      $("hands").innerHTML=hands.length?hands.map(function(f){return '<li><b'+(f.handoff.urgent?' style="color:var(--bad)"':'')+'>'+E(f.handoff.reason)+'</b><br>'+E(f.handoff.summary)+' <small class="empty">'+T(f.handoff.at)+'</small></li>';}).join(""):'<li class="empty">None yet.</li>';
+      $("gaps").innerHTML=(s.gaps||[]).length?s.gaps.map(function(g){return '<li>'+E(g.question)+' <small class="empty">'+T(g.at)+'</small></li>';}).join(""):'<li class="empty">None yet.</li>';
+      $("rules").innerHTML=(s.rules||[]).length?s.rules.map(function(r){return '<li>'+E(r.text)+(owner?'<button class="btn sm" data-at="'+r.at+'">remove</button>':'')+'</li>';}).join(""):'<li class="empty">None yet.</li>';
+      $("feed").innerHTML=(s.feed||[]).map(function(x){return '<div><time>'+T(x.at)+'</time><span class="'+(x.kind==="urgent"?"urgent":"")+'">'+E(x.text)+'</span></div>';}).join("")||'<p class="empty">Quiet so far.</p>';
+    }).catch(function(){});
+    if(sel) thread();
+  }
+  function thread(){
+    api("/api/lead/"+sel).then(function(r){return r.json();}).then(function(d){
+      var p=d.profile||{};
+      $("th-h").textContent=name(p);
+      var rows=[["Name",p.firstName],["Suburb",p.suburb],["Project",PT[p.projectType]||p.projectType],["Budget",BB[p.budgetBand]],["Timeline",p.timeline],["Temperature",p.temperature],["Site visit",d.booking?d.booking.slot+" AWST · "+d.booking.contact:""],["Needs a person",d.handoff?(d.handoff.urgent?"URGENT ":"")+d.handoff.reason+": "+d.handoff.summary:""],["Follow-up",d.followup?"Set: "+d.followup.reason:""],["Note",p.note]].filter(function(r){return r[1];});
+      $("prof").innerHTML=rows.length?'<dl class="prof">'+rows.map(function(r){return '<dt>'+E(r[0])+'</dt><dd>'+E(r[1])+'</dd>';}).join("")+'</dl>':"";
+      $("thread").innerHTML=d.messages.map(function(m){
+        var ev=(m.events||[]).map(function(e){return '<span class="'+E(e.kind)+'">'+E(e.text)+'</span>';}).join("");
+        return '<div class="m '+(m.role==="user"?"u":"a"+(m.followup?" f":""))+'">'+E(m.content)+(ev?'<div class="ev">'+ev+'</div>':"")+'</div>';
+      }).join("");
+    });
+  }
+  document.addEventListener("click",function(e){
+    var f=e.target.closest(".lead"); if(f){ sel=f.dataset.id; state(); return; }
+    var rb=e.target.closest(".rules button"); if(rb){ api("/api/rule/delete",{method:"POST",body:JSON.stringify({at:+rb.dataset.at})}).then(state); }
+  });
+  $("signin").addEventListener("click",function(){ var k=prompt("Owner key (for the demo's owner only):"); if(!k)return; key=k.trim(); try{sessionStorage.setItem("hl-owner-key",key);}catch(e){} state(); setTimeout(function(){ if(!owner) alert("Key not accepted. The console stays view-only."); },900); });
+  $("addrule").addEventListener("click",function(){ var v=$("rule").value.trim(); if(!v)return; api("/api/rule",{method:"POST",body:JSON.stringify({text:v})}).then(function(){ $("rule").value=""; state(); }); });
+  $("sweep").addEventListener("click",function(){ var b=this; b.disabled=true; b.textContent="Sweeping…"; api("/api/sweep",{method:"POST"}).then(state).finally(function(){ b.disabled=false; b.textContent="Run the desk sweep now"; }); });
+  $("reset").addEventListener("click",function(){ if(!confirm("Clear all demo leads, gaps and activity? House rules and today's usage stay."))return; api("/api/reset",{method:"POST"}).then(function(){ sel=null; $("thread").innerHTML='<p class="empty">Pick a lead on the left.</p>'; $("prof").innerHTML=""; state(); }); });
+  state(); setInterval(state,6000);
+})();
+</script>
+</body>
+</html>

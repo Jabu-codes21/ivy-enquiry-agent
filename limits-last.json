@@ -1,0 +1,32 @@
+[
+ {
+  "name": "IP backstop beats cookie-clearing",
+  "pass": true,
+  "detail": "refused on call 5, limited=visitor"
+ },
+ {
+  "name": "per-conversation cap",
+  "pass": true,
+  "detail": "third message limited=conversation in 22 ms, left=1"
+ },
+ {
+  "name": "per-visitor daily cap",
+  "pass": true,
+  "detail": "next message from the same cookie limited=visitor in 32 ms; text: \"Thanks for trying Ivy. You have reached today's limit for this demo (2\""
+ },
+ {
+  "name": "other visitor unaffected",
+  "pass": true,
+  "detail": "limited=undefined"
+ },
+ {
+  "name": "global daily cap refuses everyone without calling the model",
+  "pass": true,
+  "detail": "limited=global/global in 37/32 ms; text: \"Ivy has reached the demo's daily limit across all visitors, to keep ru\""
+ },
+ {
+  "name": "desk reports usage at the cap",
+  "pass": true,
+  "detail": "{\"used\":10,\"cap\":10,\"visitorCap\":3}"
+ }
+]

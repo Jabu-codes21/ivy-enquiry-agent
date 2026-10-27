@@ -1,0 +1,31 @@
+{
+  // Harbour Line Renovations enquiry agent "Ivy": PORTFOLIO DEMO, fictional business. Public, served at the root path.
+  // Secret (never in this file): OWNER_KEY. Local: a dev-vars file (see the example). Deployed: npx wrangler secret put OWNER_KEY
+  "name": "harbour-line-enquiry-demo",
+  // same account as eklavyashetty.com and po.eklavyashetty.com (po-demo/web/wrangler.jsonc)
+  "account_id": "8f5947a7b20b2cad2137ae8d9b187094",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "routes": [ { "pattern": "agent.allforone.co.in", "custom_domain": true } ],
+  "preview_urls": false,
+  "ai": { "binding": "AI" },
+  "durable_objects": { "bindings": [ { "name": "LEAD", "class_name": "Lead" }, { "name": "DESK", "class_name": "Desk" } ] },
+  "migrations": [ { "tag": "v1", "new_sqlite_classes": ["Lead", "Desk"] } ],
+  "rules": [ { "type": "Text", "globs": ["**/*.html"], "fallthrough": true } ],
+  "observability": { "enabled": true },
+  "vars": {
+    "AGENT_NAME": "Ivy",
+    "MODEL": "@cf/zai-org/glm-4.7-flash",
+    // abuse limits: messages per visitor per day, per conversation, all visitors per day (resets midnight Perth time)
+    "VISITOR_DAILY_MAX": "25",
+    "CONVERSATION_MAX": "40",
+    "GLOBAL_DAILY_MAX": "1500",
+    // backstop for cookie-clearing: messages per IP per day (counted when cf-connecting-ip is present)
+    "IP_DAILY_MAX": "100",
+    // demo speed: follow-ups fire in 90 s, a lead counts as quiet after 3 min, the desk sweeps every 10 min
+    "DEMO_FOLLOWUP_MS": "90000",
+    "QUIET_MS": "180000",
+    "SWEEP_MS": "600000"
+  }
+}

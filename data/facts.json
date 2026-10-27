@@ -1,0 +1,108 @@
+{
+  "business": {
+    "name": "Harbour Line Renovations",
+    "fictional": true,
+    "tagline": "Kitchens, bathrooms and whole-home renovations across Perth",
+    "base": "Osborne Park, Perth, Western Australia",
+    "timezone": "Australia/Perth (AWST, UTC+8, no daylight saving)",
+    "phone": "(08) 5550 0142",
+    "email": "hello@harbourline.example",
+    "showroom": {
+      "address": "Unit 6, 41 Tannery Lane, Osborne Park WA 6017",
+      "hours": "Monday to Friday 8:00 am to 5:00 pm, Saturday 9:00 am to 1:00 pm, closed Sunday and public holidays",
+      "note": "Samples of benchtops, tiles, tapware and cabinetry. Walk-ins welcome, or book a time so a designer is free."
+    },
+    "established": "Family-run since 2009",
+    "teamNote": "In-house project managers and designers. Plumbing, electrical and gas work done by licensed tradespeople."
+  },
+  "services": [
+    { "id": "kitchen", "name": "Kitchen renovations", "summary": "Full kitchen design and build: cabinetry, benchtops, splashbacks, appliances installed, plumbing, electrical and lighting, flooring where needed." },
+    { "id": "bathroom", "name": "Bathroom and ensuite renovations", "summary": "Strip-out to finished room: waterproofing, tiling, vanities, showers, baths, toilets, heated towel rails, lighting and ventilation." },
+    { "id": "laundry", "name": "Laundry renovations", "summary": "Cabinetry, benchtops, tiling, tub and appliance connections. Often done alongside a bathroom." },
+    { "id": "whole-home", "name": "Whole-home and multi-room renovations", "summary": "Two or more rooms, or a full refresh of a house: layout changes, non-structural wall removal, flooring, painting, lighting. Structural changes are engineered and approved before work starts." },
+    { "id": "outdoor", "name": "Alfresco and outdoor living", "summary": "Roofed alfresco areas, outdoor kitchens and paved entertaining spaces attached to the home." }
+  ],
+  "notDone": [
+    "Emergency repairs (burst pipes, flooding, electrical faults). We are a planned renovation company, not a call-out service.",
+    "Asbestos removal. If asbestos is suspected we pause and a licensed removalist is engaged before our work continues.",
+    "Standalone painting, flooring, roofing, pool or landscaping jobs",
+    "New-home builds and granny flats",
+    "Insurance repair jobs (storm, fire or water damage claims)"
+  ],
+  "areas": {
+    "serviced": [
+      "Coastal north: Scarborough, Trigg, Doubleview, Karrinyup, Innaloo, Hillarys, Sorrento, Joondalup, Mullaloo",
+      "Western suburbs: Cottesloe, Claremont, Nedlands, Dalkeith, Subiaco, Floreat, City Beach, Wembley",
+      "Inner city and north-east: Mount Lawley, Leederville, North Perth, Maylands, Bayswater, Inglewood, Victoria Park, Osborne Park",
+      "South of the river: Fremantle, South Fremantle, East Fremantle, Bicton, Applecross, Melville, Booragoon, Willetton, Canning Vale, Rockingham"
+    ],
+    "byArrangement": "Outer suburbs such as Ellenbrook, Baldivis, Armadale and Mandurah only for whole-home jobs over $80,000, case by case.",
+    "notServiced": "Regional Western Australia and anywhere outside greater Perth."
+  },
+  "pricing": {
+    "currency": "AUD",
+    "gst": "All prices include GST.",
+    "disclaimer": "These are typical ranges from past Perth jobs, not quotes. The price depends on layout, materials, access, plumbing and electrical changes and the age of the home. A written fixed-price quote is given only after a site measure.",
+    "ranges": [
+      { "service": "Kitchen", "tier": "Refresh (new doors, benchtop, splashback, same layout)", "from": 18000, "to": 30000 },
+      { "service": "Kitchen", "tier": "Full renovation, mid-range finishes", "from": 30000, "to": 55000 },
+      { "service": "Kitchen", "tier": "Full renovation, premium finishes or layout change", "from": 55000, "to": 95000 },
+      { "service": "Bathroom or ensuite", "tier": "Standard", "from": 15000, "to": 25000 },
+      { "service": "Bathroom or ensuite", "tier": "Mid-range", "from": 25000, "to": 38000 },
+      { "service": "Bathroom or ensuite", "tier": "Premium or layout change", "from": 38000, "to": 60000 },
+      { "service": "Laundry", "tier": "Full renovation", "from": 8000, "to": 18000 },
+      { "service": "Whole-home or multi-room", "tier": "Two to four rooms", "from": 80000, "to": 220000 },
+      { "service": "Alfresco or outdoor living", "tier": "Roofed area with paving and lighting", "from": 20000, "to": 60000 }
+    ],
+    "budgetBands": ["Under $15,000", "$15,000 to $30,000", "$30,000 to $60,000", "$60,000 to $100,000", "Over $100,000", "Not sure yet"]
+  },
+  "process": [
+    { "step": 1, "name": "Enquiry", "detail": "Ask Ivy or phone the office. We note your project, suburb, rough budget and timing." },
+    { "step": 2, "name": "Free site measure and quote visit", "detail": "A designer visits your home, measures up, talks through ideas and checks access and services. About 60 to 90 minutes, no charge and no obligation." },
+    { "step": 3, "name": "Written quote", "detail": "Within 5 to 7 working days you receive a fixed-price quote with inclusions, exclusions and allowances listed." },
+    { "step": 4, "name": "Design and selections", "detail": "After you accept, we finalise the design (3D drawings for kitchens) and choose finishes at the showroom. Council or strata approvals are lodged if needed." },
+    { "step": 5, "name": "Contract and deposit", "detail": "A written home building contract is signed and the deposit paid. Materials are ordered." },
+    { "step": 6, "name": "Build", "detail": "A named project manager runs the job and sends weekly progress updates. Any change is priced and agreed in writing before it goes ahead." },
+    { "step": 7, "name": "Handover", "detail": "A walk-through with you, a defect list closed out, a care guide and warranty paperwork provided, then the final payment." }
+  ],
+  "timelines": {
+    "quoteTurnaround": "5 to 7 working days after the site visit",
+    "leadTime": "Typically 3 to 6 weeks from signing the contract to starting on site, longer for custom cabinetry or imported stone",
+    "onSite": [
+      "Bathroom or ensuite: 3 to 5 weeks",
+      "Laundry: 2 to 3 weeks",
+      "Kitchen: 4 to 8 weeks",
+      "Whole-home: 10 to 24 weeks depending on scope",
+      "Alfresco: 4 to 8 weeks"
+    ],
+    "delays": "Weather, late deliveries and hidden problems found once walls are opened can add time. We tell you as soon as we know."
+  },
+  "licensing": {
+    "summary": "Harbour Line Renovations holds the builder registration and contractor registrations required in Western Australia for the work we do. Plumbing, gas fitting and electrical work are carried out by licensed tradespeople for those trades. We can show you the current registration details on request at the site visit.",
+    "insurance": "We carry public liability and contract works insurance. For larger jobs we arrange the home indemnity insurance that Western Australian law requires and give you the certificate before work starts."
+  },
+  "warranty": {
+    "workmanship": "7 years on structural and waterproofing workmanship, 2 years on all other workmanship and finishes.",
+    "products": "Manufacturer warranties on cabinetry hardware, tapware, appliances and stone are passed on to you and vary by product.",
+    "claims": "Warranty claims are handled by the office, who book an inspection."
+  },
+  "payments": {
+    "structure": "Staged payments tied to progress, never paid in full upfront.",
+    "stages": [
+      "Deposit of 5% when the contract is signed",
+      "Progress payments at set milestones, for example demolition and rough-in complete, waterproofing and tiling complete, cabinetry installed",
+      "Final 5% on handover after the walk-through and defect list",
+      "Variations are invoiced when they are approved in writing"
+    ],
+    "methods": "Bank transfer or card. Card payments over $5,000 may carry a surcharge.",
+    "example": "On a $28,000 kitchen: $1,400 deposit, progress payments of roughly $8,400 each at three milestones, final $1,400 on handover. Exact milestones are in your contract."
+  },
+  "visitSlots": {
+    "days": "Monday to Saturday",
+    "weekdayTimes": ["9:00 am", "11:30 am", "2:00 pm", "4:00 pm"],
+    "saturdayTimes": ["9:00 am", "11:00 am"],
+    "leadHours": 24,
+    "duration": "60 to 90 minutes",
+    "bring": "Photos, inspiration pictures, any plans, and a rough idea of budget and timing are all helpful but not required."
+  }
+}

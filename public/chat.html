@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo of an AI enquiry agent for a fictional Perth renovator. Built by Eklavya Shetty.">
+<title>__NAME__ · Harbour Line Renovations (demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martel:wght@400;700;800&family=Martel+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F0E7;--paper2:#ECE4D6;--card:#FFFDF9;--ink:#1D2A30;--ink2:#46545B;--ink3:#69767C;--rule:rgba(29,42,48,.16);--navy:#15384A;--navy2:#0E2A39;--copper:#B25A2B;--copper2:#8F4519;--ok:#2C6B45;--warn:#9A5B12;--bad:#A62F2F}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 "Martel Sans",Georgia,serif;display:flex;flex-direction:column;-webkit-text-size-adjust:100%}
+a{color:inherit}
+.demo{background:var(--navy2);color:#F5F0E7;font-size:13px;line-height:1.4;padding:8px 16px;text-align:center}
+.demo b{font-weight:700}
+.demo a{color:#F2C9A8;text-underline-offset:2px}
+header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--rule)}
+.mark{flex:none;width:40px;height:40px}
+header>div{min-width:0}
+header h1{margin:0;font:800 18px/1.1 Martel,serif;color:var(--navy)}
+header p{margin:3px 0 0;font-size:12.5px;color:var(--ink3)}
+header .sp{flex:1}
+.btn{font:600 13px "Martel Sans",sans-serif;color:var(--navy);background:none;border:1px solid var(--navy);border-radius:4px;padding:7px 11px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--navy);color:#fff}
+.btn.solid{background:var(--navy);color:#fff}
+main{flex:1;overflow:auto;padding:20px 16px 8px;-webkit-overflow-scrolling:touch}
+.wrap{max-width:720px;margin:0 auto}
+.agent-card{display:flex;gap:12px;align-items:center;margin:0 0 16px}
+.avatar{flex:none;width:44px;height:44px;border-radius:50%;background:var(--copper);color:#fff;font:800 20px/44px Martel,serif;text-align:center;position:relative}
+.avatar::after{content:"";position:absolute;right:0;bottom:1px;width:11px;height:11px;border-radius:50%;background:#3E9A63;border:2px solid var(--paper)}
+.avatar.busy{animation:breathe 1s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(.9)}}
+.agent-card b{display:block;font:700 15px/1.2 Martel,serif}
+.agent-card small{color:var(--ink3);font-size:12.5px}
+.intro h2{font:800 clamp(26px,6.4vw,34px)/1.12 Martel,serif;color:var(--navy);margin:6px 0 10px}
+.intro p{color:var(--ink2);margin:0 0 6px}
+.starters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.starters button{font:600 14px/1.3 "Martel Sans",sans-serif;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:10px 12px;cursor:pointer}
+.starters button:hover{border-color:var(--navy);background:#fff}
+.msg{display:flex;gap:10px;margin:0 0 14px}
+.msg.user{justify-content:flex-end}
+.mini{flex:none;width:26px;height:26px;border-radius:50%;background:var(--copper);color:#fff;font:800 13px/26px Martel,serif;text-align:center;margin-top:3px}
+.bub{max-width:86%;padding:11px 14px;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere}
+.agent .bub{background:var(--card);border:1px solid var(--rule);border-top-left-radius:0}
+.user .bub{background:var(--navy);color:#F5F0E7;border-top-right-radius:0}
+.agent .bub.limit{border-color:var(--copper);background:#FBF1E8}
+.follow{font:700 11px/1 "Martel Sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--copper2);margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;white-space:normal}
+.chip{font:600 12px/1.3 "Martel Sans",sans-serif;color:var(--ink2);border:1px solid var(--rule);border-radius:3px;padding:3px 8px;background:var(--paper)}
+.chip::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ink3);margin-right:6px;vertical-align:1px}
+.chip.saved{color:var(--navy);border-color:rgba(21,56,74,.4)}.chip.saved::before{background:var(--navy)}
+.chip.booked{color:var(--ok);border-color:rgba(44,107,69,.5);background:#EEF6F0}.chip.booked::before{background:var(--ok)}
+.chip.scheduled,.chip.followup{color:var(--copper2);border-color:rgba(178,90,43,.5)}.chip.scheduled::before,.chip.followup::before{background:var(--copper)}
+.chip.handoff{color:var(--warn);border-color:rgba(154,91,18,.5);background:#FBF4E6}.chip.handoff::before{background:var(--warn)}
+.chip.urgent{color:#fff;border-color:var(--bad);background:var(--bad)}.chip.urgent::before{background:#fff}
+.chip.gap{border-style:dashed}
+.dots{display:inline-flex;gap:4px}.dots i{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:b 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes b{50%{opacity:.25}}
+form{padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--rule);background:var(--card)}
+form .wrap{display:flex;gap:10px}
+textarea{flex:1;resize:none;height:48px;font:400 16px/1.4 "Martel Sans",sans-serif;padding:12px;border:1px solid var(--navy);border-radius:4px;background:#fff;color:var(--ink)}
+form button{font:700 15px "Martel Sans",sans-serif;background:var(--copper);color:#fff;border:0;border-radius:4px;padding:0 20px;cursor:pointer}
+form button:hover{background:var(--copper2)}
+form button:disabled{opacity:.5;cursor:default}
+.foot{max-width:720px;margin:6px auto 0;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--ink3);line-height:1.4}
+:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+@media (min-width:700px){header{padding:14px 24px}main{padding:28px 24px 10px}form{padding-left:24px;padding-right:24px}}
+@media (max-width:520px){header{gap:8px;padding:10px 12px}header p,.x{display:none}.mark{width:32px;height:32px}header h1{font-size:15px}.btn{padding:6px 9px;font-size:12px}.bub{max-width:92%}.foot{flex-direction:column;gap:2px}}
+@media (prefers-reduced-motion:reduce){.avatar.busy,.dots i{animation:none}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Demo business.</b> Harbour Line Renovations is fictional. Built by <a href="https://eklavyashetty.com" target="_blank" rel="noopener">Eklavya Shetty</a>.</div>
+<header>
+  <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#15384A"/><path d="M7 25h26" stroke="#F2C9A8" stroke-width="2.4" stroke-linecap="round"/><path d="M12 25V15l8-5 8 5v10" fill="none" stroke="#F5F0E7" stroke-width="2.2" stroke-linejoin="round"/><path d="M7 30c4-2 7 2 13 0s9-2 13 0" fill="none" stroke="#B25A2B" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <div><h1>Harbour Line Renovations</h1><p>Kitchens, bathrooms and homes across Perth</p></div>
+  <span class="sp"></span>
+  <button type="button" class="btn" id="reset" title="Start a new enquiry">New<span class="x"> enquiry</span></button>
+  <a class="btn solid" href="/console" target="_blank" rel="noopener"><span class="x">Owner </span>console</a>
+</header>
+<main id="main"><div class="wrap" id="log">
+  <div class="agent-card"><div class="avatar" id="av" aria-hidden="true">I</div><div><b>__NAME__, enquiry assistant</b><small>Online now. Perth time (AWST). An AI agent, not a person.</small></div></div>
+  <div class="intro"><h2>Planning a renovation in Perth?</h2><p>Ask about prices, suburbs, timelines or how it works. Tell me about your project and I can book a free site measure and quote visit. If I don't know something, I'll say so and pass it to the team.</p></div>
+  <div class="starters" id="starters">
+    <button type="button">How much does a kitchen renovation cost in Perth?</button>
+    <button type="button">I'm planning a bathroom in Fremantle. Where do I start?</button>
+    <button type="button">Do you work in Scarborough?</button>
+    <button type="button">Can I book a free site visit?</button>
+  </div>
+</div></main>
+<form id="f"><div class="wrap"><textarea id="t" placeholder="Tell me about your project" aria-label="Your message" maxlength="600"></textarea><button id="send">Send</button></div>
+<div class="foot"><span>Chats show in the public owner console. Please don't type real personal details.</span><span id="left"></span></div></form>
+<script>
+(function(){
+  var log=document.getElementById("log"), t=document.getElementById("t"), f=document.getElementById("f"), send=document.getElementById("send"), av=document.getElementById("av"), main=document.getElementById("main"), leftEl=document.getElementById("left");
+  var id; try{ id=localStorage.getItem("ivy-lead"); }catch(e){}
+  if(!id){ id="lead-"+Math.random().toString(36).slice(2,10)+Date.now().toString(36); try{localStorage.setItem("ivy-lead",id);}catch(e){} }
+  var seen=0, busy=false;
+  function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e;}
+  function render(m,limit){
+    var row=el("div","msg "+(m.role==="user"?"user":"agent"));
+    if(m.role!=="user") row.appendChild(el("div","mini","I"));
+    var b=el("div","bub"+(limit?" limit":""));
+    if(m.followup) b.appendChild(el("div","follow","Followed up on its own"));
+    b.appendChild(document.createTextNode(m.content));
+    // the agent's actions, shown as small chips under its reply
+    if(m.events&&m.events.length){var c=el("div","chips"), seenK={}; m.events.forEach(function(e){ if(e.kind==="followup"||seenK[e.text])return; seenK[e.text]=1; c.appendChild(el("span","chip "+e.kind,e.text)); }); if(c.children.length) b.appendChild(c);}
+    row.appendChild(b); log.appendChild(row); main.scrollTop=main.scrollHeight;
+    return row;
+  }
+  function load(){
+    return fetch("/api/lead/"+id).then(function(r){return r.json();}).then(function(d){
+      var ms=d.messages||[]; if(ms.length){ var s=document.getElementById("starters"); if(s) s.remove(); }
+      for(var i=seen;i<ms.length;i++) render(ms[i]); seen=ms.length;
+    }).catch(function(){});
+  }
+  function ask(text){
+    if(busy||!text.trim())return; busy=true; send.disabled=true; av.classList.add("busy");
+    var s=document.getElementById("starters"); if(s) s.remove();
+    render({role:"user",content:text}); seen++;
+    t.value="";
+    var wait=el("div","msg agent"); wait.appendChild(el("div","mini","I")); var wb=el("div","bub"); var d=el("span","dots"); d.innerHTML="<i></i><i></i><i></i>"; wb.appendChild(d); wait.appendChild(wb); log.appendChild(wait); main.scrollTop=main.scrollHeight;
+    fetch("/api/lead/"+id,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({op:"chat",text:text})})
+      .then(function(r){return r.json();}).then(function(r){
+        wait.remove();
+        if(r.limited){ seen--; render({role:"agent",content:r.reply},true); } // refused messages are not stored
+        else { render({role:"agent",content:r.reply,events:r.events}); seen++; }
+        if(r.left!=null) leftEl.textContent=r.left+" messages left today"; if(r.limited==="visitor"||r.limited==="global") leftEl.textContent="Daily demo limit reached";
+      })
+      .catch(function(){ wait.remove(); render({role:"agent",content:"I couldn't reach the desk just now. Try again in a moment."}); })
+      .finally(function(){ busy=false; send.disabled=false; av.classList.remove("busy"); t.focus(); });
+  }
+  f.addEventListener("submit",function(e){e.preventDefault(); ask(t.value);});
+  t.addEventListener("keydown",function(e){ if(e.key==="Enter"&&!e.shiftKey){e.preventDefault(); ask(t.value);} });
+  document.addEventListener("click",function(e){ var b=e.target.closest(".starters button"); if(b) ask(b.textContent); });
+  document.getElementById("reset").addEventListener("click",function(){ try{localStorage.removeItem("ivy-lead");}catch(e){} location.reload(); });
+  load(); setInterval(function(){ if(!busy) load(); }, 5000); // the agent can message you first
+})();
+</script>
+</body>
+</html>
